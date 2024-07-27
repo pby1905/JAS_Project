@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,10 +20,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco --openssl-legacy-provider start",
+    "build": "craco build",
+    "test": "craco test",
+    "analyze": "cross-env REACT_INTERACTIVE_ANALYZE=1 yarn build",
     "eject": "react-scripts eject",
+    "commit": "git add . && npx git-cz",
     "lint": "eslint --ext ts,tsx src/",
     "lint:fix": "eslint --fix --ext ts,tsx src/",
     "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.css|*.scss)\"",
